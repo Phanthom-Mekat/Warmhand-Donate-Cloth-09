@@ -8,7 +8,7 @@ const Navbar = () => {
     </>
     return (
         <>
-            <div className="navbar w-11/12 mx-auto bg-none">
+            <div className="navbar w-full md:w-11/12 mx-auto bg-none">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,8 +31,8 @@ const Navbar = () => {
                            {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">WarmHands</a>
-                    <img src="./logo.gif" alt="" className="w-16 h-16" />
+                    <a className="btn btn-ghost md:text-xl">WarmHands</a>
+                    {/* <img src="./logo.gif" alt="" className="w-16 h-16" /> */}
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -41,7 +41,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <Link to="/dashboard" className="btn mr-5 bg-secondary">Dashboard</Link>
-                    <Link to="/login" className="btn bg-primary">Login</Link>
+                    <Link to="/auth/login" className="btn bg-primary">Login</Link>
                 </div>
             </div>
         </>
