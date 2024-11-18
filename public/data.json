@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "title": "Warm Clothes for Dhaka",
+      "image": "https://i.postimg.cc/MHC1c88b/133214-body-Winter52.jpg",
+      "description": "Providing warm clothes to underprivileged people in Dhaka.",
+      "status": "Active",
+      "contactInfo": "donate@example.com",
+      "division": "Dhaka"
+    },
+    {
+      "id": 2,
+      "title": "Blanket Drive in Chittagong. ",
+      "image": "https://i.postimg.cc/s2mPT8ps/3-1.jpg",
+      "description": "Collecting blankets for those in need in Chittagong. Clothes will be distributed to those in need.",
+      "status": "Active",
+      "contactInfo": "help@example.com",
+      "division": "Chittagong"
+    },
+    {
+      "id": 3,
+      "title": "Jacket Collection for Dhaka",
+      "image": "https://i.postimg.cc/cH5RSn9z/535031-Whats-App-Image-2023-01-20-at-12-08-25-1.jpg",
+      "description": "Collecting and distributing jackets for slum areas in Dhaka.",
+      "status": "Ongoing",
+      "contactInfo": "dhaka_jackets@example.com",
+      "division": "Dhaka"
+    },
+    {
+      "id": 4,
+      "title": "Children's Winter Drive - Chittagong",
+      "image": "https://i.postimg.cc/9MfdKppT/850761-Whats-App-Image-2023-01-20-at-12-08-26-2.jpg",
+      "description": "Focused on providing warm clothing to children in Chittagong schools.",
+      "status": "Active",
+      "contactInfo": "chittagong_children@example.com",
+      "division": "Chittagong"
+    },
+    {
+      "id": 5,
+      "title": "Blanket Distribution in Dhaka Suburbs",
+      "image": "https://i.postimg.cc/mZJYp7Fz/Distribution-of-winter-clothing-2023-1.jpg",
+      "description": "Reaching suburban areas of Dhaka to distribute blankets.",
+      "status": "Completed",
+      "contactInfo": "suburban_help@example.com",
+      "division": "Dhaka"
+    },
+    {
+      "id": 6,
+      "title": "Cozy Winter Campaign - Chittagong",
+      "image": "https://i.postimg.cc/wMyhTjnj/MA-Khulna-Bangladesh-3-1024x683.jpg",
+      "description": "Encouraging corporate donations for large-scale blanket drives in Chittagong.",
+      "status": "Ongoing",
+      "contactInfo": "corporate_support@example.com",
+      "division": "Chittagong"
+    },
+    {
+      "id": 7,
+      "title": "Warm Clothes for Dhaka",
+      "image": "https://i.postimg.cc/8CNBBDfZ/w-scaled.webp",
+      "description": "Providing warm clothes to underprivileged people in Dhaka.",
+      "status": "Active",
+      "contactInfo": "donate@example.com",
+      "division": "Dhaka"
+    },
+    {
+      "id": 8,
+      "title": "Blanket Drive in Chittagong. ",
+      "image": "https://i.postimg.cc/m29QvhQd/Winter-Clothes-Distribution-Program-2018-33.jpg",
+      "description": "Collecting blankets for those in need in Chittagong.  clothes to underprivileged people in Dhaka.",
+      "status": "Active",
+      "contactInfo": "help@example.com",
+      "division": "Chittagong"
+    }
+  ]
+
+
+  
+  
+  
+  
+  
+  
+  
