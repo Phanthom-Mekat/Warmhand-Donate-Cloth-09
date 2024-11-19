@@ -7,36 +7,41 @@ const Register = () => {
     const { createNewUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState({});
+
+    const validatePassword = (password) => {
+        if (password.length < 6) {
+            return "Password should be at least 6 characters";
+        }
+        if (!/[A-Z]/.test(password)) {
+            return "Password should have at least one uppercase letter";
+        }
+        if (!/[a-z]/.test(password)) {
+            return "Password should have at least one lowercase letter";
+        }
+        return null; 
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        //get form data
+
         const form = new FormData(e.target);
         const name = form.get("name");
         const email = form.get("email");
         const photo = form.get("photo");
         const password = form.get("password");
-        
-        if (name.length < 5) {
-            setError({ ...error, name: "name should be more then 5 character" });
+
+        setError({}); 
+
+        if (name.length < 3) {
+            setError({ name: "Name should be more than 3 characters" });
             return;
         }
 
-        if (password.length < 6) {
-            setError({ ...error, password: "Password should be at least 6 characters" });
+        const passwordError = validatePassword(password);
+        if (passwordError) {
+            setError({ password: passwordError });
             return;
         }
-
-        if (!/[A-Z]/.test(password)) {
-            setError({ ...error, password: "Password should have at least one uppercase letter" });
-            return;
-        }
-
-        if (!/[a-z]/.test(password)) { 
-            setError({ ...error, password: "Password should have at least one lowercase letter" });
-            return;
-        }
-
-
 
         createNewUser(email, password)
             .then((result) => {
@@ -46,27 +51,27 @@ const Register = () => {
                     .then(() => {
                         navigate("/");
                     })
-                    .catch((err) => {
-                        console.log(err);
-                    });
+                    .catch((err) => console.log(err));
             })
             .catch((err) => {
                 console.log(err);
-                setError({ ...error, register: err.message });
+                setError({ register: err.message });
             });
-        };
-        const handleGoogleSignIn = () => {
-            signInWithGoogle()
-                .then((result) => {
-                    const user = result.user;
-                    setUser(user);
-                    navigate("/");
-                })
-                .catch((err) => {
-                    console.log(err);
-                    setError({ ...error, google: err.message });
-                });
-        };
+    };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                navigate("/");
+            })
+            .catch((err) => {
+                console.log(err);
+                setError({ google: err.message });
+            });
+    };
+
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
@@ -83,26 +88,13 @@ const Register = () => {
                             type="text"
                             placeholder="name"
                             className="input input-bordered"
+                            onChange={() => setError((prev) => ({ ...prev, name: null }))}
                             required
                         />
+                        {error.name && (
+                            <label className="label text-sm text-red-500">{error.name}</label>
+                        )}
                     </div>
-                    {error.name && (
-                        <label className="label text-sx text-red-500">{error.name}</label>
-                    )}
-
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Photo URL</span>
-                        </label>
-                        <input
-                            type="text"
-                            name="photo"
-                            placeholder="photo-url"
-                            className="input input-bordered"
-                            required
-                        />
-                    </div>
-                    {/* email input  */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
@@ -115,6 +107,21 @@ const Register = () => {
                             required
                         />
                     </div>
+                    
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input
+                            name="photo"
+                            type="text"
+                            placeholder="photo-url"
+                            className="input input-bordered"
+                            required
+                        />
+                    </div>
+
+                  
 
                     <div className="form-control">
                         <label className="label">
@@ -125,13 +132,22 @@ const Register = () => {
                             type="password"
                             placeholder="password"
                             className="input input-bordered"
+                            onChange={() => setError((prev) => ({ ...prev, password: null }))}
                             required
                         />
-
+                        {error.password && (
+                            <label className="label text-sm text-red-500">{error.password}</label>
+                        )}
                     </div>
-                    {error.register && <label className="label">{error.register}</label>}
-                    
-                    <div onClick={handleGoogleSignIn} className="btn w-1/4 mt-2 mx-auto">
+
+                    {error.register && (
+                        <label className="label text-sm text-red-500">{error.register}</label>
+                    )}
+
+                    <div
+                        onClick={handleGoogleSignIn}
+                        className="btn w-1/4 mt-2 mx-auto"
+                    >
                         <FaGoogle className="text-2xl" />
                     </div>
                     <div className="form-control mt-6">
@@ -139,7 +155,7 @@ const Register = () => {
                     </div>
                 </form>
                 <p className="text-center font-semibold">
-                    Allready Have An Account ?{" "}
+                    Already Have An Account?{" "}
                     <Link className="text-red-500" to="/auth/login">
                         Login
                     </Link>

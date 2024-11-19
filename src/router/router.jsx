@@ -7,7 +7,9 @@ import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRouter from "./PrivateRouter";
-
+import ForgotPass from "../components/ForgotPass";
+import Dashboard from "../components/Dashboard";
+import UpdateInfo from "../components/UpdateInfo";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -24,7 +26,15 @@ const router = createBrowserRouter([
             {
                 path:"/details/:id",
                 element:<PrivateRouter><DonationDetails/></PrivateRouter>
-            }
+            },
+            {
+              path:"/dashboard",
+              element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>
+            },
+           {
+            path:'/update-profile',
+            element:<PrivateRouter><UpdateInfo></UpdateInfo></PrivateRouter>
+           }
         ]
     },
     {
@@ -39,6 +49,10 @@ const router = createBrowserRouter([
             path: "/auth/register",
             element: <Register />,
           },
+          {
+            path: "/auth/forgot",
+            element: <ForgotPass />,
+          }
         ],
       },
 

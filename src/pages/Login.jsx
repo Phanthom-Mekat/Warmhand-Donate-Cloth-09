@@ -83,9 +83,9 @@ const Login = () => {
                             success && <p className="text-green-500 text-sm">Sign in Successful</p>
                         }
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">
+                            <Link to="/auth/forgot" className="label-text-alt link link-hover">
                                 Forgot password?
-                            </a>
+                            </Link>
                         </label>
                     </div>
                     <div onClick={handleGoogleSignIn} className="btn w-1/4 mx-auto">

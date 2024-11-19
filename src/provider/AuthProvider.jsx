@@ -5,6 +5,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -47,6 +48,10 @@ const signInWithGoogle = () => {
     return updateProfile(auth.currentUser, updatedData);
   };
 
+  const resetPassword = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
   const authInfo = {
     user,
     setUser,
@@ -55,7 +60,8 @@ const signInWithGoogle = () => {
     userLogin,
     loading,
     updateUserProfile,
-    signInWithGoogle
+    signInWithGoogle,
+    resetPassword
   };
 
   useEffect(() => {

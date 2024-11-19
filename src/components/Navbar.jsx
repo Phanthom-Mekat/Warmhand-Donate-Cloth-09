@@ -44,7 +44,7 @@ const Navbar = () => {
 
                             </div>
                         ) : (
-                            <Link to="/auth/login" className="btn bg-secondary ">
+                            <Link to="/auth/login" className="btn bg-secondary btn-sm ">
                                 Login
                             </Link>
                         )
