@@ -10,6 +10,7 @@ import PrivateRouter from "./PrivateRouter";
 import ForgotPass from "../components/ForgotPass";
 import Dashboard from "../components/Dashboard";
 import UpdateInfo from "../components/UpdateInfo";
+import ErrorPage from "../components/ErrorPage";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
 
     {
         path: "*",
-        element: <h1>404</h1>,
+        element: <ErrorPage></ErrorPage>,
     }
 ]);
 
