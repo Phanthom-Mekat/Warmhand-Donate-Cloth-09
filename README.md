@@ -1,8 +1,33 @@
-# React + Vite
+# WarmHand
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+WarmHand is a web application designed to connect donors with individuals in need of winter clothing across Bangladesh. Our mission is to ensure that everyone, especially vulnerable individuals in rural and low-income areas, stays warm during the colder months.
 
-Currently, two official plugins are available:
+## Live URL
+[WarmHand Live](#) *(Replace `#` with the actual URL once available)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- **User Authentication**: Secure login and registration using Firebase authentication.
+- **Donation Campaigns**: Browse and participate in various ongoing donation campaigns.
+- **Responsive Design**: Optimized for desktop and mobile devices with a smooth user experience.
+- **Interactive UI**: Engaging animations powered by AOS (Animate on Scroll) library.
+- **Real-time Updates**: Instant feedback and notifications using React Toastify.
+
+## npm Packages Used
+- **React Icons**: Popular icons as React components.
+- **React Toastify**: For non-blocking notifications in React.
+- **Firebase**: For authentication and backend services.
+- **React Router DOM**: Declarative routing for React apps.
+- **React Slick**: Carousel component for React.
+- **Slick Carousel**: The carousel used by React Slick.
+- **AOS (Animate on Scroll)**: For adding animations to components on scroll.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **DaisyUI**: A component library that integrates with Tailwind CSS.
+
+## Development
+To get started with the development, clone the repository and run the following commands:
+
+```bash
+npm install
+npm run dev
+```

@@ -1,12 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
     const { createNewUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState({});
+    const [showPassword, setShowPassword] = useState(false)
 
     const validatePassword = (password) => {
         if (password.length < 6) {
@@ -18,7 +19,7 @@ const Register = () => {
         if (!/[a-z]/.test(password)) {
             return "Password should have at least one lowercase letter";
         }
-        return null; 
+        return null;
     };
 
     const handleSubmit = (e) => {
@@ -30,7 +31,7 @@ const Register = () => {
         const photo = form.get("photo");
         const password = form.get("password");
 
-        setError({}); 
+        setError({});
 
         if (name.length < 3) {
             setError({ name: "Name should be more than 3 characters" });
@@ -107,7 +108,7 @@ const Register = () => {
                             required
                         />
                     </div>
-                    
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
@@ -121,20 +122,23 @@ const Register = () => {
                         />
                     </div>
 
-                  
-
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <input
+                            type={showPassword ? 'text' : 'password'}
                             name="password"
-                            type="password"
                             placeholder="password"
                             className="input input-bordered"
                             onChange={() => setError((prev) => ({ ...prev, password: null }))}
                             required
                         />
+                        <button className="absolute btn btn-ghost bottom-0 right-0" onClick={(e) => {
+                            e.preventDefault(); 
+                            setShowPassword(!showPassword);
+                        }}>
+                        {showPassword ? <FaEyeSlash /> : <FaEye />} </button>
                         {error.password && (
                             <label className="label text-sm text-red-500">{error.password}</label>
                         )}
