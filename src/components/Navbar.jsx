@@ -1,10 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err))
+    }
     const links = <>
-                            <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/donation">Donation Campaigns</NavLink></li>
-                            <li><NavLink to="/help">How To Help</NavLink></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/donation">Donation Campaigns</NavLink></li>
+        <li><NavLink to="/help">How To Help</NavLink></li>
     </>
     return (
         <>
@@ -28,7 +36,7 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                           {links}
+                            {links}
                         </ul>
                     </div>
                     <a className="btn btn-ghost md:text-xl">WarmHands</a>
@@ -36,12 +44,19 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                       {links}
+                        {links}
                     </ul>
                 </div>
                 <div className="navbar-end">
                     <Link to="/dashboard" className="btn mr-5 bg-secondary">Dashboard</Link>
-                    <Link to="/auth/login" className="btn bg-primary">Login</Link>
+                    {
+                        user ? (
+                            <button onClick={handleLogout} className="btn bg-secondary">Logout</button>
+                        ) : (
+                            <Link to="/auth/login" className="btn bg-secondary">Login</Link>
+                        )
+                    }
+
                 </div>
             </div>
         </>

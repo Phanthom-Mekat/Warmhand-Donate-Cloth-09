@@ -6,6 +6,7 @@ import DonationDetails from "../pages/DonationDetails";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/details/:id",
-                element:<DonationDetails />
+                element:<PrivateRouter><DonationDetails/></PrivateRouter>
             }
         ]
     },
