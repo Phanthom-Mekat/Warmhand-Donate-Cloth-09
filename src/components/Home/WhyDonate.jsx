@@ -28,10 +28,10 @@ const WhyDonate = () => {
 
   return (
     <section
-      className="bg-gray-100 py-16 px-6 lg:px-12"
+      className="bg-gray-100 py-16 px-6 lg:px-12 overflow-hidden"
       data-aos="fade-up"
     >
-      <div className="container mx-auto text-gray-800">
+      <div className="md:w-11/12 mx-auto text-gray-800">
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-primary">Why Donate Clothes?</h2>

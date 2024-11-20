@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
     return (
         <>
-            <div className="navbar w-full md:w-11/12 mx-auto bg-none">
+            <div className="navbar w-full md:w-11/12 mx-auto bg-red">
                 <div className="navbar-start">
 
                     <a className="btn btn-ghost text-sm md:text-xl">WarmHands</a>

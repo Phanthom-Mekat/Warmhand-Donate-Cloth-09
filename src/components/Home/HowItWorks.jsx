@@ -39,8 +39,8 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="bg-gray-100 text-gray-800 py-16 px-6" data-aos="fade-up">
-      <div className="container mx-auto">
+    <section className="bg-gray-100 text-gray-800 py-16 px-6 overflow-hidden" data-aos="fade-up">
+      <div className="md:w-11/12 mx-auto">
 
         <h2
           data-aos="fade-up"
