@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const ForgotPass = () => {
-    const { resetPassword } = useContext(AuthContext);
-    const [email, setEmail] = useState("");
+    const { resetPassword, email } = useContext(AuthContext);
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
 
     const handleEmailChange = (e) => {
-        setEmail(e.target.value);
+        e.preventDefault();
+        const email = e.target.value;
+        console.log(email);
     };
     
     const handleSubmit = (e) => {
@@ -54,12 +55,12 @@ const ForgotPass = () => {
                             className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                     </div>
-                    <button
+                  <a href="https://mail.google.com/mail/u/0/?tab=wm#inbox"
                         type="submit"
-                        className="btn bg-primary w-full text-white rounded-3xl"
+                        className="btn bg-primary w-full text-white rounded-3xl" target="_blank"
                     >
                         Send Reset Link
-                    </button>
+                  </a>
                 </form>
                 {message && <p className="mt-4 text-green-500 text-center">{message}</p>}
                 {error && <p className="mt-4 text-red-500 text-center">{error}</p>}

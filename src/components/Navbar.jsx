@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="navbar w-full md:w-11/12 mx-auto bg-red">
                 <div className="navbar-start">
 
-                    <a className="btn btn-ghost text-sm md:text-xl">WarmHands</a>
+                    <Link to={"/"} className="btn btn-ghost text-sm md:text-xl">WarmHands</Link>
                     {/* <img src="./logo.gif" alt="" className="w-16 h-16" /> */}
                 </div>
                 <div className="navbar-center hidden lg:flex">

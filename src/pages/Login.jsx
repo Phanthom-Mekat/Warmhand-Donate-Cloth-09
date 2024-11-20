@@ -4,22 +4,23 @@ import { AuthContext } from "../provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { userLogin, setUser,signInWithGoogle } = useContext(AuthContext);
+    const { userLogin, setUser, signInWithGoogle, setEmail } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log({ email, password });
+
         setSuccess(false);
         setError('');
         if (password.length < 6) {
-            setError('Password should be at least 6 characters')
-            return
+            setError('Password should be at least 6 characters');
+            return;
         }
         userLogin(email, password)
             .then((result) => {
@@ -45,11 +46,16 @@ const Login = () => {
                 setError(err.message);
             });
     };
+    const handleEmailChange = (e) => {
+        const email = e.target.value;
+        setEmail(email); 
+    };
+
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
                 <h2 className="text-2xl font-semibold text-center">
-                    Login your account
+                    Login to your account
                 </h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
@@ -59,9 +65,10 @@ const Login = () => {
                         <input
                             name="email"
                             type="email"
-                            placeholder="email"
+                            placeholder="Enter your email"
                             className="input input-bordered"
                             required
+                            onChange={handleEmailChange}
                         />
                     </div>
                     <div className="form-control">
@@ -71,32 +78,31 @@ const Login = () => {
                         <input
                             name="password"
                             type="password"
-                            placeholder="password"
+                            placeholder="Enter your password"
                             className="input input-bordered"
                             required
                         />
 
-                        {
-                            error && <p className="text-red-600 text-sm">{error}</p>
-                        }
-                        {
-                            success && <p className="text-green-500 text-sm">Sign in Successful</p>
-                        }
+                        {error && <p className="text-red-600 text-sm">{error}</p>}
+                        {success && <p className="text-green-500 text-sm">Sign in successful!</p>}
                         <label className="label">
                             <Link to="/auth/forgot" className="label-text-alt link link-hover">
                                 Forgot password?
                             </Link>
                         </label>
                     </div>
-                    <div onClick={handleGoogleSignIn} className="btn w-1/4 mx-auto">
+                    <div
+                        onClick={handleGoogleSignIn}
+                        className="btn w-1/4 mx-auto flex items-center gap-2"
+                    >
                         <FaGoogle className="text-2xl" />
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-primary  rounded-3xl">Login</button>
+                        <button className="btn bg-primary rounded-3xl">Login</button>
                     </div>
                 </form>
                 <p className="text-center font-semibold">
-                    Dont’t Have An Account ?{" "}
+                    Don’t have an account?{" "}
                     <Link className="text-red-500" to="/auth/register">
                         Register
                     </Link>
